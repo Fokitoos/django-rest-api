@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin,\
                                                         BaseUserManager
@@ -19,7 +21,7 @@ class UserManager(BaseUserManager):
 
         return user
     
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, password) -> 'user':
         """ Creates and saves a new superuser """
         user = self.create_user(email, password)
         user.is_staff = True
